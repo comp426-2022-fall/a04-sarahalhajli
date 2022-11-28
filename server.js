@@ -21,18 +21,18 @@ app.get('/app/', (req, res) => {
 })
 
 app.get('/app/roll/', (req, res) => {
-	const sides = 6;
-	const dice = 2;
-	const rolls = 1;
+	const sides = req.body.sides || 6;
+	const dice = req.body.dice || 2;
+	const rolls = req.body.rolls || 1;
 	const values = roll(sides, dice, rolls);
-	res.status(200).json({'sides': sides, 'dice': dice, 'rolls': rolls, 'results': values})
+	res.status(200).send(JSON.stringify({'sides': sides, 'dice': dice, 'rolls': rolls, 'results': values}))
 	res.end()
 })
 
 app.get('/app/roll/:sides/', (req, res) => {
 	const sides = req.params.sides;
 	const values = roll(sides, 2, 1);
-	res.status(200).json({'sides': sides, 'dice': 2, 'rolls': 1, 'results': values})
+	res.status(200).send(JSON.stringify({'sides': sides, 'dice': 2, 'rolls': 1, 'results': values}))
 	res.end()
 })
 
@@ -40,7 +40,7 @@ app.get('/app/roll/:sides/:dice/', (req, res) => {
 	const sides = req.params.sides;
 	const dice = req.params.dice;
 	const values = roll(sides, dice, 1);
-	res.status(200).json({'sides': sides, 'dice': dice, 'rolls': 1, 'results': values})
+	res.status(200).send(JSON.stringify({'sides': sides, 'dice': dice, 'rolls': 1, 'results': values}))
 	res.end()
 })
 
@@ -49,7 +49,7 @@ app.get('/app/roll/:sides/:dice/:rolls/', (req, res) => {
 	const dice = req.params.dice;
 	const rolls = req.params.rolls;
 	const values = roll(sides, dice, rolls);
-	res.status(200).json({'sides': sides, 'dice': dice, 'rolls': rolls, 'results': values})
+	res.status(200).send(JSON.stringify({'sides': sides, 'dice': dice, 'rolls': rolls, 'results': values}))
 	res.end()
 })
 
