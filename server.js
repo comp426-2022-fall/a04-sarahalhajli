@@ -21,13 +21,13 @@ app.get('/app/', (req, res) => {
 })
 
 app.get('/app/roll/', (req, res) => {
-	const sides = parseInt(req.params.sides) || 6;
-	const dice = parseInt(req.params.dice) || 2;
-	const rolls = parseInt(req.params.rolls) || 1;
+	const sides = 6;
+	const dice = 2;
+	const rolls = 1;
 	const values = roll(sides, dice, rolls);
 	res.status(200).json({'sides': sides, 'dice': dice, 'rolls': rolls, 'results': values})
 	res.end()
-	})
+})
 
 app.get('/app/roll/:sides/', (req, res) => {
 	const sides = req.params.sides;
