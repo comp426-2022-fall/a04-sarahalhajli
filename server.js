@@ -41,7 +41,7 @@ app.post('/app/roll/', (req, res) => {
 app.get('/app/roll/:sides/', (req, res) => {
 	const sides = req.params.sides;
 	const values = roll(sides, 2, 1);
-	res.status(200).send({'sides': sides, 'dice': 2, 'rolls': 1, 'results': values})
+	res.status(200).send({'sides': parseInt(sides), 'dice': 2, 'rolls': 1, 'results': values})
 	res.end()
 })
 
@@ -49,7 +49,7 @@ app.get('/app/roll/:sides/:dice/', (req, res) => {
 	const sides = req.params.sides;
 	const dice = req.params.dice;
 	const values = roll(sides, dice, 1);
-	res.status(200).send({'sides': sides, 'dice': dice, 'rolls': 1, 'results': values})
+	res.status(200).send({'sides': parseInt(sides), 'dice': parseInt(dice), 'rolls': 1, 'results': values})
 	res.end()
 })
 
@@ -58,7 +58,7 @@ app.get('/app/roll/:sides/:dice/:rolls/', (req, res) => {
 	const dice = req.params.dice;
 	const rolls = req.params.rolls;
 	const values = roll(sides, dice, rolls);
-	res.status(200).send({'sides': sides, 'dice': dice, 'rolls': rolls, 'results': values})
+	res.status(200).send({'sides': parseInt(sides), 'dice': parseInt(dice), 'rolls': parseInt(rolls), 'results': values})
 	res.end()
 })
 
