@@ -13,9 +13,7 @@ const port = args.port || 5000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.listen(port, () => {
-	console.log("Server listening on port" + port)
-})
+app.listen(port);
 
 app.get('/app/', (req, res) => {
 	res.send('200 OK')
